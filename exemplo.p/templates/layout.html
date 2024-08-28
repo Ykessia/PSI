@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask App</title>
+</head>
+<body>
+    <nav>
+        <!-- cria um link para o index -->
+        <a href="{{ url_for('index') }}">inicial</a>
+
+        <!-- cria um link para o register -->
+        <a href="{{ url_for('register') }}">cadastro</a>
+
+        <!-- cria um link para o login -->
+        <a href="{{ url_for('login') }}">login</a>
+
+        <!-- para verificar se a chave username está presente na sessão do usuário.
+          O método session.get('username') tenta obter o valor associado à chave username. -->
+        {% if session.get('username') %}
+            <a href="{{ url_for('logout') }}">sair</a>
+        {% endif %}
+    </nav>
+    <div>
+        <!-- para definir uma variável messages que armazena a lista de mensagens 
+         flash recuperadas pela função get_flashed_messages().  -->
+        {% with messages = get_flashed_messages() %}
+
+            <!-- verificar se existe alguma mensagem -->
+            {% if messages %}
+            
+                <!-- caso exista, vai exivir a mensagem -->
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

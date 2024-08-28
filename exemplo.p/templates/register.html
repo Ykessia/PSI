@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2>cadastro</h2>
+    <form method="POST" action="{{ url_for('register') }}">
+        <label for="username">User:</label>
+        <input type="text" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">cadastrar</button>
+    </form>
+{% endblock %}

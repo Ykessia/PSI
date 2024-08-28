@@ -1,0 +1,21 @@
+<!-- essa pagina vai herdar o template de layout -->
+{% extends 'layout.html' %}
+
+<!-- Define um bloco chamado content.
+  Blocos são áreas no template base (layout.html) que podem ser substituídas 
+  ou preenchidas com conteúdo específico do template atual. 
+  O conteúdo que colocar entre {% block content %} e {% endblock %} será inserido no lugar do content no layout. -->
+{% block content %}
+    <h1>Bem vindo</h1>
+
+    <!-- para verificar se a chave username está presente na sessão do usuário.
+      O método session.get('username') tenta obter o valor associado à chave username da sessão. 
+     Se username estiver presente e não for None, a condição será verdadeira; caso contrário, será falsa. -->
+    {% if session.get('username') %}
+        <p>Logado como: {{ session['username'] }}</p>
+
+    <!-- Se a chave username não estiver presente na sessão, o código dentro do bloco else será executado. -->
+    {% else %}
+        <p>você não está logado ainda.</p>
+    {% endif %}
+{% endblock %}
