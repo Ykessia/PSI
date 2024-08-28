@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLITE 3</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% block link %}
+<!-- Define um bloco chamado 'link'. Este bloco pode ser substituído ou preenchido com conteúdo específico
+     em templates que estendem este template base. Geralmente, esse bloco é usado para adicionar links específicos
+     ou arquivos CSS/JS no cabeçalho da página. O bloco é deixado vazio aqui, mas pode ser preenchido em templates derivados. -->
+
+{% endblock %}
+<!-- Finaliza o bloco 'link'. O conteúdo do bloco definido aqui será inserido no local apropriado no template base,
+     conforme definido em templates que estendem este template base. -->
+
+</head>
+<body>
+<!-- Marca o início da seção do corpo da página. A tag <body> contém o conteúdo visível da página web. -->
+
+    <div class="container">
+    <!-- Define um container com a classe CSS 'container', que geralmente é usado para centralizar e estilizar o conteúdo da página. -->
+
+        <div class="nav">
+        <!-- Define uma seção de navegação com a classe CSS 'nav'. Esta seção geralmente contém links de navegação. -->
+
+            <h2><a href="{{ url_for('index') }}">Users</a></h2>
+            <!-- Cria um link para a rota 'index' (página inicial). O 'url_for' é uma função do Flask que gera a URL para a rota especificada. -->
+            
+            <h2><a href="{{ url_for('create') }}">Add</a></h2>
+            <!-- Cria um link para a rota 'create' (página para adicionar um novo item). Novamente, 'url_for' gera a URL para a rota especificada. -->
+        
+        </div>
+
+        <div class="main">
+        <!-- Define a seção principal do conteúdo com a classe CSS 'main'. Esta seção é onde o conteúdo dinâmico será inserido. -->
+
+            {% block conteudo %}
+            <!-- Define um bloco chamado 'conteudo'. Este bloco será substituído ou preenchido com o conteúdo específico
+                 em templates que estendem este template base. É aqui que o conteúdo principal da página será inserido. -->
+
+            {% endblock %}
+            <!-- Finaliza o bloco 'conteudo'. O conteúdo definido dentro deste bloco será inserido no local apropriado
+                 no template base, conforme definido em templates derivados. -->
+
+        </div>
+    </div>
+
+</body>
+</html>

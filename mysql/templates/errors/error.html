@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+<!-- Indica que este template estende (ou herda) de um template base chamado 'layout.html'.
+     Isso significa que o template atual irá usar a estrutura e os blocos definidos em 'layout.html'. -->
+
+{% block conteudo %}
+<!-- Define um bloco chamado 'conteudo'. Este bloco será substituído pelo conteúdo específico
+     fornecido neste template. O bloco 'conteudo' deve estar definido em 'layout.html', e o conteúdo aqui
+     será inserido no local correspondente definido no template base. -->
+
+<h1 class="error">
+    {{ message }}
+    <!-- Exibe a mensagem de erro passada para o template. O valor de 'message' é passado pelo
+         controlador Flask e será renderizado dentro da tag <h1> com a classe CSS 'error'. -->
+</h1>
+
+{% endblock %}
+<!-- Finaliza o bloco 'conteudo'. Após este ponto, o conteúdo do bloco será fechado e o template
+     base ('layout.html') será renderizado com o conteúdo deste bloco inserido no local apropriado. -->
