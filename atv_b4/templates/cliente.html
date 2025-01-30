@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Cliente</title>
+</head>
+<body>
+    <h1>Cadastrar Cliente</h1>
+    <form method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Clientes cadastrados:</h2>
+    <ul>
+        {% for cliente in clientes %}
+            <li>{{ cliente.nome }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{url_for('index')}}">Voltar</a>
+</body>
+</html>

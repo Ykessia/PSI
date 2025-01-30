@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Cliente</title>
+</head>
+<body>
+    <h1>Cadastrar Veiculo</h1>
+    <form method="post">
+        <label for="modelo">Modelo:</label>
+        <input type="text" name="modelo" required>
+        <label for="placa">Placa:</label>
+        <input type="text" name="placa" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Veículos cadastrados:</h2>
+    <ul>
+        {% for veiculo in veiculos %}
+            <li>{{ veiculo.modelo }} - {{ veiculo.placa }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{url_for('index')}}">Voltar</a>
+</body>
+</html>
